@@ -64,7 +64,7 @@ public class Project3_Codebase {
 
     public static void main(String[] args) {
 
-        //make our UI on EDT using invokeLater
+
         //have an action listener on a button that will make and start a new thread for calucation/image drawing
         //when that thread makes the image, repaint the window on the EDT using invoke later
         SwingUtilities.invokeLater(new Runnable() {
@@ -219,7 +219,7 @@ public class Project3_Codebase {
                 Speed.addChangeListener(new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
-                        //TODO: Adjust the initial delay of the timer when the slider moves
+                        //Adjust the initial delay of the timer when the slider moves
                         AnimationTimer.setInitialDelay(Speed.getValue());
                     }
                 });
@@ -246,7 +246,7 @@ public class Project3_Codebase {
                         float turtle_length = Float.parseFloat(length.getText());
                         */
 
-                        //TODO: Generate the L-system string, then draw it. Later, draw it in a Timer to animate it.
+                        //Generate the L-system string, then draw it. Later, draw it in a Timer to animate it.
                         AnimationOver = false;
                         TurtleStepCount = 0;
                         Graphics2D g = (Graphics2D) Display.getGraphics();
@@ -266,7 +266,7 @@ public class Project3_Codebase {
                 DisplayPanel.addMouseWheelListener(new MouseWheelListener() {
                     @Override
                     public void mouseWheelMoved(MouseWheelEvent e) {
-                        //TODO: Use the MouseWheelEvent to modify the current scaling factor, then redraw the L-system at the new scale and repaint the UI
+                        //Use the MouseWheelEvent to modify the current scaling factor, then redraw the L-system at the new scale and repaint the UI
                         if(e.getWheelRotation() < 0){
                             TurtleScale *=1.1f;
                         }
@@ -283,7 +283,7 @@ public class Project3_Codebase {
                 DisplayPanel.addMouseMotionListener(new MouseMotionListener() {
                     @Override
                     public void mouseDragged(MouseEvent e) {
-                        //TODO: Use the MouseEvent to modify the current X and Y offsets, then redraw the L-system at the new scale on its own thread, then repaint the UI on the EDT. You should account for the difference between the coordinate systems of the turtle and the JPanel
+                        //Use the MouseEvent to modify the current X and Y offsets, then redraw the L-system at the new scale on its own thread, then repaint the UI on the EDT. You should account for the difference between the coordinate systems of the turtle and the JPanel
                         changeMouseX = e.getX() - oldMouseX;
                         changeMouseY = e.getY() - oldMouseY;
 
@@ -300,7 +300,7 @@ public class Project3_Codebase {
 
                     @Override
                     public void mouseMoved(MouseEvent e) {
-                        //TODO: Keep track of the mouse position even if the mouse isn't clicked
+                        //Keep track of the mouse position even if the mouse isn't clicked
                             oldMouseX = e.getX();
                             oldMouseY = e.getY();
 
@@ -315,7 +315,7 @@ public class Project3_Codebase {
                         //System.out.print("\n");
                         //delay_time = Speed.getValue();
                         //AnimationTimer.setDelay(delay_time);
-                        //TODO: Progressively draw more and more of the current L-system each time the Timer starts over. Repaint the UI at the end of the Timer, and restart it.
+                        //Progressively draw more and more of the current L-system each time the Timer starts over. Repaint the UI at the end of the Timer, and restart it.
                         Thread drawThread = new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -341,7 +341,7 @@ public class Project3_Codebase {
                                 SwingUtilities.invokeLater(new Runnable() {
                                     @Override
                                     public void run() {
-                                        //TODO repaint the UI and restart timer
+                                        repaint the UI and restart timer
                                         window.repaint();
                                         AnimationTimer.restart();
 
